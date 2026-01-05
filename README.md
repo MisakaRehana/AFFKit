@@ -1,0 +1,39 @@
+> Eh! Of what use is a new-born baby?
+>                        -- Benjamin Franklin
+
+# AFFKit
+Lightweight toolkit for working with Arcaea File Format (AFF) chart files in .NET.
+
+## Getting Started
+### Installation
+You can download the latest release from the [Releases](https://github.com/MisakaRehana/AFFKit/releases) page.
+
+### Usage
+Below is a simple example of how to load an AFF file and read its metadata:
+
+```csharp
+using AFFKit.Core.Data.Chart;
+using AFFKit.Core.Enumerators;
+
+using var fs = new FileStream(@"E:\Arcaea Fanmade\Misaka Castle Fanmade Charts\ろん cover since 石風呂 with 初音ミク - ゆるふわ樹海ガール\4.aff", FileMode.Open, FileAccess.Read);
+using var reader = new ArcChartReader(fs);
+reader.ParseChart(AFFEventSortType.ByType);
+var chart = reader.ToChart();
+
+// fs and reader can be disposed safely since here
+
+Console.WriteLine($"AudioOffset: {chart.AudioOffset}");
+Console.WriteLine($"Timing Point Density Factor (TPDF): {chart.TimingPointDensityFactor}");
+Console.WriteLine($"Number of Timing Groups (including default group): {chart.Groups.Count}");
+Console.WriteLine($"Number of Notes (each long note counts as one): {chart.Groups.Sum(g => g.Events.Count(e => e is AFFNote))}");
+Console.WriteLine($"Number of Judgable Notes (each long note counts as one): {chart.Groups.Where(g => !g.Params.Contains("noinput")).Sum(g => g.Events.Count(e => e is AFFNote))}");
+```
+
+## Contributing
+We welcome contributions! Feel free to open [issues](https://github.com/MisakaRehana/AFFKit/issues) or submit [pull requests]((https://github.com/MisakaRehana/AFFKit/pulls)).
+
+## License
+Licensed under 123 Open-Source Organization MIT Public License 2.0. See [LICENSE](LICENSE) for more details.
+
+---
+Last Update: Jan 6th, 2026

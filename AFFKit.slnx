@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AFFKit.Core/AFFKit.Core.csproj" />
+  <Project Path="AFFKit.Test/AFFKit.Test.csproj" />
+</Solution>

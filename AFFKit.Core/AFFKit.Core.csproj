@@ -9,18 +9,21 @@
         <AssemblyTitle>Arcaea File Format (AFF) Kit Core Library</AssemblyTitle>
         <Description>Core library for handling Arcaea File Format (AFF) chart files.</Description>
         <Company>Misaka Castle and AFFKit contributors</Company>
-        <Version>0.1.0</Version>
+        <Version>0.1.1</Version>
         <Title>AFFKit.Core</Title>
         <Authors>Misaka Castle and AFFKit contributors</Authors>
         <Copyright>(C)Copyright 2018-2026 Misaka Castle Group and AFFKit contributors</Copyright>
         <PackageProjectUrl>https://github.com/MisakaRehana/AFFKit</PackageProjectUrl>
-        <PackageLicenseUrl>https://github.com/MisakaRehana/AFFKit/blob/main/LICENSE.md</PackageLicenseUrl>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageReadmeFile>README.md</PackageReadmeFile>
+        <RepositoryUrl>https://github.com/MisakaRehana/AFFKit</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
     
     <ItemGroup>
         <None Include="README.md" Pack="true" PackagePath="\" />
+        <None Include="LICENSE" Pack="true" PackagePath="\" />
     </ItemGroup>
 
 </Project>

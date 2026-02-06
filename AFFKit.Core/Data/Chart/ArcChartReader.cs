@@ -411,7 +411,7 @@ public sealed class ArcChartReader : IDisposable, IAsyncDisposable
 			var parser = new StackStringParser(line);
 			parser.SkipRunes(7); // skip "camera("
 			int timing = parser.ReadInt();
-			var move = new Vector3(parser.ReadFloat(), parser.ReadFloat(), parser.ReadFloat());
+			var move = new System.Numerics.Vector3(parser.ReadFloat(), parser.ReadFloat(), parser.ReadFloat());
 			var rotate = MisakaCastleMath.Euler(parser.ReadFloat(), parser.ReadFloat(), parser.ReadFloat());
 			var type = EnumExtension.ParseByDescription<CameraType>(parser.ReadString(), strict: true);
 			int duration = parser.ReadInt();
